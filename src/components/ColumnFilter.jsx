@@ -1,4 +1,4 @@
-
+// The component used to filter the columns of the table
 
 function ColumnFilter({ column }) {
 

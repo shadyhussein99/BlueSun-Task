@@ -1,15 +1,19 @@
+// The component holding the table
+
 import { useMemo } from 'react';
+import { useSelector } from 'react-redux'
+import { useTable, useSortBy, useFilters } from 'react-table'  // Using react-table library
 import ColumnFilter from './ColumnFilter';
-import { useTable, useSortBy, useFilters } from 'react-table'
-import data from "../data.json";
 
 function Table() {
+
+    const data = useSelector((state) => state.data.value)    // Data of the json file
 
     const customers = useMemo(() => data.customers, [])
     const transactions = useMemo(() => data.transactions, [])
 
-    const joinData = useMemo(() => {
-        return transactions.map((transaction) => {
+    const joinData = useMemo(() => {                        // To make one array holding the whole data to be able to use it as the data array in useTable()
+        return transactions.map((transaction) => { 
             const theCustomer = customers.find(
                 (value) => value.id === transaction.customer_id
             );
@@ -20,13 +24,13 @@ function Table() {
         });
     }, [customers, transactions])
 
-
-
-    const columns = useMemo(() => [
+    const columns = useMemo(() => [                                // Headers of the table
         { Header: 'Name', accessor: 'name', Filter: ColumnFilter },
         {
-            Header: 'Transaction', columns: [{ Header: 'Amount', accessor: 'amount', Filter: ColumnFilter },
-            { Header: 'Date', accessor: 'date', Filter: ColumnFilter },]
+            Header: 'Transaction', columns: [
+                { Header: 'Amount', accessor: 'amount', Filter: ColumnFilter },
+                { Header: 'Date', accessor: 'date', Filter: ColumnFilter, disableFilters: true }
+            ]
         },
     ], [])
 
@@ -47,7 +51,7 @@ function Table() {
                         {headerGroup.headers.map(column => (
                             <th {...column.getHeaderProps(column.getSortByToggleProps())}>
                                 {column.render('Header')}
-                                
+
                                 <span>
                                     {column.isSorted
                                         ? column.isSortedDesc
