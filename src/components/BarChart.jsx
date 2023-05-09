@@ -4,7 +4,7 @@ import { Chart as ChartJS } from "chart.js/auto"   // chart.js library for chart
 import { Bar } from "react-chartjs-2"              // importing Bar component from chart.js library
 
 
-function BarChart() {
+function BarChart(props) {
 
     const data = useSelector((state) => state.data.value)    // Data of the json file
 
@@ -72,11 +72,11 @@ function BarChart() {
     }
 
     return <section>
-        <Bar data={customerData1} />
-        <Bar data={customerData2} />
-        <Bar data={customerData3} />
-        <Bar data={customerData4} />
-        <Bar data={customerData5} />
+       {props.customer1Chart && <Bar data={customerData1} />}
+       {props.customer2Chart && <Bar data={customerData2} />}
+       {props.customer3Chart && <Bar data={customerData3} />}
+       {props.customer4Chart && <Bar data={customerData4} />}
+       {props.customer5Chart && <Bar data={customerData5} />}
     </section>
 }
 

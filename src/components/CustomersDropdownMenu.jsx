@@ -46,6 +46,7 @@ function CustomersDropdownMenu(props) {
             props.setCustomersChart({ ...updatedObject, customer5: true });
         }
     }
+    
 
     return <div>
         <button onClick={() => { setToggle(!toggle) }}>Show Customers Charts 🔽</button>

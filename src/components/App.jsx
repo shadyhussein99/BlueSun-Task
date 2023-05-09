@@ -20,7 +20,13 @@ function App() {
         customersChart={customersChart}
         setCustomersChart={setCustomersChart}
       />
-      <BarChart />
+      <BarChart 
+        customer1Chart={customersChart.customer1}
+        customer2Chart={customersChart.customer2}
+        customer3Chart={customersChart.customer3}
+        customer4Chart={customersChart.customer4}
+        customer5Chart={customersChart.customer5}
+      />
     </>
   )
 }
