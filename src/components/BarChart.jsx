@@ -1,19 +1,22 @@
 
 import { useSelector } from "react-redux"
-import { Bar } from "react-chartjs-2"
-import { Chart as ChartJS } from "chart.js/auto"
+import { Chart as ChartJS } from "chart.js/auto"   // chart.js library for charts
+import { Bar } from "react-chartjs-2"              // importing Bar component from chart.js library
+
 
 function BarChart() {
 
     const data = useSelector((state) => state.data.value)    // Data of the json file
 
+    // Arrays of customers data
     const customer1 = data.transactions.filter((value) => value.customer_id === 1)
     const customer2 = data.transactions.filter((value) => value.customer_id === 2)
     const customer3 = data.transactions.filter((value) => value.customer_id === 3)
     const customer4 = data.transactions.filter((value) => value.customer_id === 4)
     const customer5 = data.transactions.filter((value) => value.customer_id === 5)
 
-    const userData1 = {
+    // Objects of customers data to implement it in the charts
+    const customerData1 = {
         labels: customer1.map(value => value.date),
         datasets: [{
             label: "Transactions per day",
@@ -24,7 +27,7 @@ function BarChart() {
         }],
     }
 
-    const userData2 = {
+    const customerData2 = {
         labels: customer2.map(value => value.date),
         datasets: [{
             label: "Transactions per day",
@@ -35,7 +38,7 @@ function BarChart() {
         }],
     }
 
-    const userData3 = {
+    const customerData3 = {
         labels: customer3.map(value => value.date),
         datasets: [{
             label: "Transactions per day",
@@ -46,7 +49,7 @@ function BarChart() {
         }],
     }
 
-    const userData4 = {
+    const customerData4 = {
         labels: customer4.map(value => value.date),
         datasets: [{
             label: "Transactions per day",
@@ -57,7 +60,7 @@ function BarChart() {
         }],
     }
 
-    const userData5 = {
+    const customerData5 = {
         labels: customer5.map(value => value.date),
         datasets: [{
             label: "Transactions per day",
@@ -69,11 +72,11 @@ function BarChart() {
     }
 
     return <section>
-        <Bar data={userData1} />
-        <Bar data={userData2} />
-        <Bar data={userData3} />
-        <Bar data={userData4} />
-        <Bar data={userData5} />
+        <Bar data={customerData1} />
+        <Bar data={customerData2} />
+        <Bar data={customerData3} />
+        <Bar data={customerData4} />
+        <Bar data={customerData5} />
     </section>
 }
 
