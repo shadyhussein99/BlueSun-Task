@@ -1,4 +1,5 @@
 import Table from "./Table"
+import BarChart from "./BarChart"
 
 function App() {
 
@@ -6,6 +7,7 @@ function App() {
   return (
     <>
       <Table />
+      <BarChart />
     </>
   )
 }

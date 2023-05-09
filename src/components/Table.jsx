@@ -9,8 +9,8 @@ function Table() {
 
     const data = useSelector((state) => state.data.value)    // Data of the json file
 
-    const customers = useMemo(() => data.customers, [])
-    const transactions = useMemo(() => data.transactions, [])
+    const customers = data.customers
+    const transactions =  data.transactions
 
     const joinData = useMemo(() => {                        // To make one array holding the whole data to be able to use it as the data array in useTable()
         return transactions.map((transaction) => { 
