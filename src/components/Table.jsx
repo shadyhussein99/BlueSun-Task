@@ -27,7 +27,7 @@ function Table() {
     const columns = useMemo(() => [                                // Headers of the table
         { Header: 'Name', accessor: 'name', Filter: ColumnFilter },
         {
-            Header: 'Transaction', columns: [
+            Header: 'Transactions', columns: [
                 { Header: 'Amount', accessor: 'amount', Filter: ColumnFilter },
                 { Header: 'Date', accessor: 'date', Filter: ColumnFilter, disableFilters: true }
             ]
@@ -44,12 +44,12 @@ function Table() {
     );
 
     return <main>
-        <table {...getTableProps()}>
-            <thead>
+        <table {...getTableProps()} className='w-full border border-black'>
+            <thead className='border border-black'>
                 {headerGroups.map(headerGroup => (
-                    <tr {...headerGroup.getHeaderGroupProps()}>
+                    <tr {...headerGroup.getHeaderGroupProps()} className='border border-black'>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps(column.getSortByToggleProps())}>
+                            <th {...column.getHeaderProps(column.getSortByToggleProps())} className='border border-black align-top text-xl'>
                                 {column.render('Header')}
 
                                 <span>
@@ -69,9 +69,9 @@ function Table() {
                 {rows.map(row => {
                     prepareRow(row)
                     return (
-                        <tr {...row.getRowProps()}>
+                        <tr {...row.getRowProps()} className='border border-black'>
                             {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                                return <td {...cell.getCellProps()} className=' text-center border border-black'>{cell.render('Cell')}</td>
                             })}
                         </tr>
                     )
