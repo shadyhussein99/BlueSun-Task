@@ -2,10 +2,11 @@ import { useState } from "react"
 import Table from "./Table"
 import CustomersDropdownMenu from "./CustomersDropdownMenu"
 import BarChart from "./BarChart"
+import CustomersTotalTransactions from "./CustomersTotalTransactions"
 
 function App() {
 
-  const [customersChart, setCustomersChart] = useState({
+  const [customersDetails, setCustomersDetails] = useState({
     customer1: false,
     customer2: false,
     customer3: false,
@@ -16,16 +17,23 @@ function App() {
   return (
     <>
       <Table />
-      <CustomersDropdownMenu 
-        customersChart={customersChart}
-        setCustomersChart={setCustomersChart}
+      <CustomersDropdownMenu
+        customersDetails={customersDetails}
+        setCustomersDetails={setCustomersDetails}
       />
-      <BarChart 
-        customer1Chart={customersChart.customer1}
-        customer2Chart={customersChart.customer2}
-        customer3Chart={customersChart.customer3}
-        customer4Chart={customersChart.customer4}
-        customer5Chart={customersChart.customer5}
+      <BarChart
+        customer1Chart={customersDetails.customer1}
+        customer2Chart={customersDetails.customer2}
+        customer3Chart={customersDetails.customer3}
+        customer4Chart={customersDetails.customer4}
+        customer5Chart={customersDetails.customer5}
+      />
+      <CustomersTotalTransactions
+        customer1Transaction={customersDetails.customer1}
+        customer2Transaction={customersDetails.customer2}
+        customer3Transaction={customersDetails.customer3}
+        customer4Transaction={customersDetails.customer4}
+        customer5Transaction={customersDetails.customer5}
       />
     </>
   )

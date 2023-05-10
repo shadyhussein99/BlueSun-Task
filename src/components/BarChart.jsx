@@ -1,3 +1,4 @@
+// The component of the Bar Charts
 
 import { useSelector } from "react-redux"
 import { Chart as ChartJS } from "chart.js/auto"   // chart.js library for charts
