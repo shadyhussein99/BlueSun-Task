@@ -5,3 +5,7 @@
 * {
     @apply mx-1
 }
+
+html {
+    @apply bg-slate-200
+}

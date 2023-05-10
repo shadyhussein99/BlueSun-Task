@@ -72,8 +72,8 @@ function BarChart(props) {
         }],
     }
 
-    return <section>
-       {props.customer1Chart && <Bar data={customerData1} />}
+    return <section className="mt-12 mb-3">
+       {props.customer1Chart && <Bar data={customerData1} className="" />}
        {props.customer2Chart && <Bar data={customerData2} />}
        {props.customer3Chart && <Bar data={customerData3} />}
        {props.customer4Chart && <Bar data={customerData4} />}

@@ -44,12 +44,12 @@ function Table() {
     );
 
     return <main>
-        <table {...getTableProps()} className='w-full border border-black'>
+        <table {...getTableProps()} className='w-full border border-black bg-white'>
             <thead className='border border-black'>
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()} className='border border-black'>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps(column.getSortByToggleProps())} className='border border-black align-top text-xl'>
+                            <th {...column.getHeaderProps(column.getSortByToggleProps())} className='border border-black align-top text-2xl py-2'>
                                 {column.render('Header')}
 
                                 <span>
@@ -69,9 +69,9 @@ function Table() {
                 {rows.map(row => {
                     prepareRow(row)
                     return (
-                        <tr {...row.getRowProps()} className='border border-black'>
+                        <tr {...row.getRowProps()} className='border border-black font-semibold'>
                             {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()} className=' text-center border border-black'>{cell.render('Cell')}</td>
+                                return <td {...cell.getCellProps()} className=' text-center border border-black py-2'>{cell.render('Cell')}</td>
                             })}
                         </tr>
                     )

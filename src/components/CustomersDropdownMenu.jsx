@@ -49,17 +49,19 @@ function CustomersDropdownMenu(props) {
     }
 
 
-    return <div>
-        <button onClick={() => { setToggle(!toggle) }}>Show Customers Charts 🔽</button>
+    return <section>
+        <div className="flex justify-center">
+            <button onClick={() => { setToggle(!toggle) }} className="bg-white p-4 rounded-xl text-lg font-semibold hover:bg-slate-100">Show Customers Charts 🔽</button>
+        </div>
 
         {toggle && (
-            <div>
+            <div className="bg-white w-64 mx-auto rounded-xl text-center">
                 {data.customers.map((value, index) => {
-                    return <p key={value.id} onClick={() => handleClick(index)}>{value.name}</p>
+                    return <p key={value.id} onClick={() => handleClick(index)} className=" font-semibold hover:bg-slate-200 cursor-pointer">{value.name}</p>
                 })}
             </div>
         )}
-    </div>
+    </section>
 }
 
 export default CustomersDropdownMenu

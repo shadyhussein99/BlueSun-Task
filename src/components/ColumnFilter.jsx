@@ -6,7 +6,7 @@ function ColumnFilter({ column }) {
 
     return <section>
         <span className="block font-normal text-base">Search</span>
-        <input value={filterValue || ""} onChange={(e) => { setFilter(e.target.value) }} className=" w-24 border border-black mb-2 rounded-md px-2 font-normal text-base"/>
+        <input value={filterValue || ""} onChange={(e) => { setFilter(e.target.value) }} className=" w-24 border border-black mb-2 rounded-md px-2 py-1 font-normal text-base text-black"/>
     </section>
 }
 

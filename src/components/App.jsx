@@ -46,13 +46,13 @@ function App() {
   return (
     <>
       <Table />
-      <CustomersDropdownMenu
-        customersDetails={customersDetails}
-        setCustomersDetails={setCustomersDetails}
-      />
       <HighestTransactionCustomer 
         customerHighestTransaction={customerHighestTransaction}
       />
+      <CustomersDropdownMenu
+        customersDetails={customersDetails}
+        setCustomersDetails={setCustomersDetails}
+      />     
       <BarChart
         customer1Chart={customersDetails.customer1}
         customer2Chart={customersDetails.customer2}
