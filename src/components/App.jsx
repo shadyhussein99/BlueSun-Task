@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
+import Title from "./Title"
 import Table from "./Table"
 import CustomersDropdownMenu from "./CustomersDropdownMenu"
 import HighestTransactionCustomer from "./HighestTransactionCustomer"
@@ -17,6 +18,11 @@ function App() {
     customer4: false,
     customer5: false,
   })
+
+  // This function to check if a customer is selected to show the information in the BarChart component 
+  const isAnyCustomerSelected = () => {
+    return Object.values(customersDetails).some(value => value === true);
+  }
 
   // Total transactions of each customer
   const customer1Data = data.transactions.filter((value) => value.customer_id === 1).reduce((curr, acc) => { return curr.amount + acc.amount })
@@ -45,21 +51,24 @@ function App() {
 
   return (
     <>
+      <Title />
       <Table />
-      <HighestTransactionCustomer 
+      <HighestTransactionCustomer
         customerHighestTransaction={customerHighestTransaction}
       />
       <CustomersDropdownMenu
         customersDetails={customersDetails}
         setCustomersDetails={setCustomersDetails}
-      />     
-      <BarChart
+      />
+      {isAnyCustomerSelected() && <BarChart
         customer1Chart={customersDetails.customer1}
         customer2Chart={customersDetails.customer2}
         customer3Chart={customersDetails.customer3}
         customer4Chart={customersDetails.customer4}
         customer5Chart={customersDetails.customer5}
-      />
+        customersDetails={customersDetails}
+        setCustomersDetails={setCustomersDetails}
+      />}
       <CustomersTotalTransactions
         customer1Transaction={customersDetails.customer1}
         customer2Transaction={customersDetails.customer2}

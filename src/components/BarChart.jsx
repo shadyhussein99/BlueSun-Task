@@ -72,12 +72,21 @@ function BarChart(props) {
         }],
     }
 
-    return <section className="mt-12 mb-3">
-       {props.customer1Chart && <Bar data={customerData1} className="" />}
-       {props.customer2Chart && <Bar data={customerData2} />}
-       {props.customer3Chart && <Bar data={customerData3} />}
-       {props.customer4Chart && <Bar data={customerData4} />}
-       {props.customer5Chart && <Bar data={customerData5} />}
+    const handleClick = () => {
+        const updatedObject = Object.keys(props.customersDetails).reduce((acc, curr) => {
+            acc[curr] = false;
+            return acc;
+        }, {});
+        props.setCustomersDetails({updatedObject});
+    }
+
+    return <section className="mt-12 mb-3 mx-auto">
+        <p onClick={handleClick} className=" text-right cursor-pointer">✖</p>
+        {props.customer1Chart && <Bar data={customerData1} />}
+        {props.customer2Chart && <Bar data={customerData2} />}
+        {props.customer3Chart && <Bar data={customerData3} />}
+        {props.customer4Chart && <Bar data={customerData4} />}
+        {props.customer5Chart && <Bar data={customerData5} />}
     </section>
 }
 
