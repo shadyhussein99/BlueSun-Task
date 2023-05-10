@@ -57,7 +57,7 @@ function CustomersDropdownMenu(props) {
         {toggle && (
             <div className="bg-white w-64 mx-auto rounded-xl text-center">
                 {data.customers.map((value, index) => {
-                    return <p key={value.id} onClick={() => handleClick(index)} className=" font-semibold hover:bg-slate-200 cursor-pointer">{value.name}</p>
+                    return <p key={value.id} onClick={() => handleClick(index)} className=" font-semibold hover:bg-slate-200 cursor-pointer lg:py-2">{value.name}</p>
                 })}
             </div>
         )}

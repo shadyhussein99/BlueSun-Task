@@ -80,7 +80,7 @@ function BarChart(props) {
         props.setCustomersDetails({updatedObject});
     }
 
-    return <section className="mt-12 mb-3 mx-auto">
+    return <section className="mt-12 mb-3 mx-auto md:mx-24 lg:mx-36 xl:mx-72">
         <p onClick={handleClick} className=" text-right cursor-pointer">✖</p>
         {props.customer1Chart && <Bar data={customerData1} />}
         {props.customer2Chart && <Bar data={customerData2} />}

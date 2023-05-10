@@ -29,7 +29,7 @@ function Table() {
         {
             Header: 'Transactions', columns: [
                 { Header: 'Amount', accessor: 'amount', Filter: ColumnFilter },
-                { Header: 'Date', accessor: 'date', Filter: ColumnFilter, disableFilters: true }
+                { Header: 'Date', accessor: 'date', Filter: ColumnFilter}
             ]
         },
     ], [])
@@ -49,10 +49,10 @@ function Table() {
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()} className='border border-black'>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps(column.getSortByToggleProps())} className='border border-black align-top text-2xl py-2'>
+                            <th {...column.getHeaderProps(column.getSortByToggleProps())} className='border border-black align-top text-2xl py-2 xl:text-3xl'>
                                 {column.render('Header')}
 
-                                <span>
+                                <span className=' text-base'>
                                     {column.isSorted
                                         ? column.isSortedDesc
                                             ? ' 🔽'
@@ -71,7 +71,7 @@ function Table() {
                     return (
                         <tr {...row.getRowProps()} className='border border-black font-semibold'>
                             {row.cells.map(cell => {
-                                return <td {...cell.getCellProps()} className=' text-center border border-black py-2'>{cell.render('Cell')}</td>
+                                return <td {...cell.getCellProps()} className=' text-center border border-black py-2 lg:py-3 lg:text-lg'>{cell.render('Cell')}</td>
                             })}
                         </tr>
                     )

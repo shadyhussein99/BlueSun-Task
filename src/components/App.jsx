@@ -50,7 +50,7 @@ function App() {
   const customerHighestTransaction = totalCustomersTransactions.find((value) => value.amount === maxTransaction)
 
   return (
-    <>
+    <main className="mx-5 md:mx-12 lg:mx-20">
       <Title />
       <Table />
       <HighestTransactionCustomer
@@ -81,7 +81,7 @@ function App() {
         customer4Data={customer4Data}
         customer5Data={customer5Data}
       />
-    </>
+    </main>
   )
 }
 

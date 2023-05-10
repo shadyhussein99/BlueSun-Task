@@ -6,7 +6,7 @@ function CustomersTotalTransactions(props) {
 
     const data = useSelector((state) => state.data.value)    // Data of the json file
 
-    return <section className="text-center text-lg font-semibold mb-20">  {/* Used or (||) operator to return the amount directly if the customer made only one transaction as the reduce method returns an object if the array has only one element */}
+    return <section className="text-center text-lg font-semibold mb-20 lg:text-xl xl:text-2xl">  {/* Used or (||) operator to return the amount directly if the customer made only one transaction as the reduce method returns an object if the array has only one element */}
 
         {props.customer1Transaction && <p>{data.customers[0].name} total transactions is {props.customer1Data.amount || props.customer1Data}</p>}
         {props.customer2Transaction && <p>{data.customers[1].name} total transactions is {props.customer2Data.amount || props.customer2Data}</p>}
