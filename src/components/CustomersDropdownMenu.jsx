@@ -45,6 +45,7 @@ function CustomersDropdownMenu(props) {
             }, {});
             props.setCustomersDetails({ ...updatedObject, customer5: true });
         }
+        setToggle(!toggle)
     }
 
 
